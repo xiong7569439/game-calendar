@@ -641,10 +641,10 @@ export const wutheringEvents: GameEvent[] = [
     description: '3.1版本当前卡池',
     featured: true,
     characters: [
-      { name: '卢克·赫尔森', rarity: 5, isNew: true },
+      { name: '陆·赫斯', rarity: 5, isNew: true },
       { name: '嘉贝莉娜', rarity: 5 },
       { name: '散华', rarity: 4 },
-      { name: '露米', rarity: 4 },
+      { name: '灯灯', rarity: 4 },
       { name: '渊武', rarity: 4 },
     ],
   },
