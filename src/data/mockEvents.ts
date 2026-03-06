@@ -763,12 +763,12 @@ export const wutheringEvents: GameEvent[] = [
 // ============================================================
 // PUBG Mobile 活动数据（2026年）
 // 活动规律（基于历史数据归纳）：
-//   1. 充值返利活动：
-//      - S级返利：2025-3、2025-7、2025-8、2025-11、2025-12、2026-3...
-//      - A级返利：2025-6、2025-9、2025-10、2026-1、2026-2、2026-6...
+//   1. 充值返利活动：按 S A A S A A S A A S 规律循环（3月起）
+//      - S级返利：返利比例最高80%，包含随机1200-6000UC高额返利
+//      - A级返利：返利比例最高50%
 //      - 一般在月初6-10号之间上线，持续约7-10天
 //   2. 月中IP联动：一般在15号之前上线，包含Prize Path和幸运转盘
-//   3. 月末GILT金装：20-27号之间，固定27号为最高重要度活动
+//   3. 月末GILT金装：20-27号之间，仅保留20-27号的活动卡片
 //   4. 通行证更新：约2个月一个周期，月中更新（1月、3月、5月、7月...）
 //   5. 版本更新：约每2个月一次（2026年：4.2在01-07，4.3约在03-06，4.4约在05-08）
 //   6. 版本更新+2天：联动活动（预估）
@@ -838,7 +838,7 @@ export const pubgEvents: GameEvent[] = [
     description: '4.2版本更新后联动活动，限时获取联动主题限定服装和道具。',
     featured: true,
   },
-  // ---- GILT金装（1月27日） ----
+  // ---- GILT金装（1月20-27日） ----
   {
     id: 'pubg-2026-01-gilt',
     game: 'pubg',
@@ -848,18 +848,6 @@ export const pubgEvents: GameEvent[] = [
     endDate: '2026-01-27T01:59:00.000Z',
     rewardInfo: '金装皮肤、枪械涂装、动作表情',
     description: '1月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
-    featured: true,
-  },
-  // ---- GILT金装 27号重点 ----
-  {
-    id: 'pubg-2026-01-gilt-27',
-    game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
-    type: 'major_event',
-    startDate: '2026-01-27T02:00:00.000Z',
-    endDate: '2026-01-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
     featured: true,
   },
 
@@ -890,7 +878,7 @@ export const pubgEvents: GameEvent[] = [
     description: '2月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
     featured: true,
   },
-  // ---- GILT金装（2月27日） ----
+  // ---- GILT金装（2月20-27日） ----
   {
     id: 'pubg-2026-02-gilt',
     game: 'pubg',
@@ -902,21 +890,9 @@ export const pubgEvents: GameEvent[] = [
     description: '2月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
-  // ---- GILT金装 27号重点 ----
-  {
-    id: 'pubg-2026-02-gilt-27',
-    game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
-    type: 'major_event',
-    startDate: '2026-02-27T02:00:00.000Z',
-    endDate: '2026-02-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
-    featured: true,
-  },
 
   // ============================================================
-  // 2026年3月活动（当前月份）
+  // 2026年3月活动（当前月份）- S级
   // ============================================================
   // ---- S级充值返利（3月） ----
   {
@@ -978,7 +954,19 @@ export const pubgEvents: GameEvent[] = [
     description: '4.3版本更新后联动活动，限时获取联动主题限定服装和道具。',
     featured: true,
   },
-  // ---- GILT金装（3月27日） ----
+  // ---- 周年庆宝箱活动 ----
+  {
+    id: 'pubg-2026-anniversary-chest',
+    game: 'pubg',
+    title: '周年庆宝箱',
+    type: 'major_event',
+    startDate: '2026-03-06T02:00:00.000Z',
+    endDate: '2026-06-11T15:59:00.000Z',
+    rewardInfo: '600UC/10次',
+    description: '周年庆宝箱活动，600UC可开启十次。奖励包括：小丑女王主题限定皮肤（武器、服装、头盔、背包等）、周年庆专属vouchers（可用于特殊转盘抽奖）、UC、优惠券、主题表情动作、周年纪念平底锅皮肤、三级头盔皮肤。',
+    featured: true,
+  },
+  // ---- GILT金装（3月20-27日） ----
   {
     id: 'pubg-2026-03-gilt',
     game: 'pubg',
@@ -990,21 +978,9 @@ export const pubgEvents: GameEvent[] = [
     description: '3月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
-  // ---- GILT金装 27号重点 ----
-  {
-    id: 'pubg-2026-03-gilt-27',
-    game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
-    type: 'major_event',
-    startDate: '2026-03-27T02:00:00.000Z',
-    endDate: '2026-03-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
-    featured: true,
-  },
 
   // ============================================================
-  // 2026年4月活动
+  // 2026年4月活动 - A级
   // ============================================================
   // ---- A级充值返利（4月） ----
   {
@@ -1030,7 +1006,7 @@ export const pubgEvents: GameEvent[] = [
     description: '4月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
     featured: true,
   },
-  // ---- GILT金装（4月27日） ----
+  // ---- GILT金装（4月20-27日） ----
   {
     id: 'pubg-2026-04-gilt',
     game: 'pubg',
@@ -1042,32 +1018,20 @@ export const pubgEvents: GameEvent[] = [
     description: '4月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
-  // ---- GILT金装 27号重点 ----
-  {
-    id: 'pubg-2026-04-gilt-27',
-    game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
-    type: 'major_event',
-    startDate: '2026-04-27T02:00:00.000Z',
-    endDate: '2026-04-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
-    featured: true,
-  },
 
   // ============================================================
-  // 2026年5月活动
+  // 2026年5月活动 - A级
   // ============================================================
-  // ---- S级充值返利（5月） ----
+  // ---- A级充值返利（5月） ----
   {
-    id: 'pubg-2026-05-recharge-s',
+    id: 'pubg-2026-05-recharge-a',
     game: 'pubg',
-    title: '充值返利活动（S级）',
-    type: 'major_event',
+    title: '充值返利活动（A级）',
+    type: 'minor_event',
     startDate: '2026-05-06T02:00:00.000Z',
     endDate: '2026-05-15T01:59:00.000Z',
-    rewardInfo: '最高返80%UC',
-    description: '5月S级充值返利活动，返利比例更高，累计充值达到指定档位可获得丰厚返利，最高返80%UC。',
+    rewardInfo: '最高返50%UC',
+    description: '5月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
     featured: true,
   },
   // ---- 月中IP联动（5月） ----
@@ -1118,7 +1082,7 @@ export const pubgEvents: GameEvent[] = [
     description: '4.4版本更新后联动活动，限时获取联动主题限定服装和道具。',
     featured: true,
   },
-  // ---- GILT金装（5月27日） ----
+  // ---- GILT金装（5月20-27日） ----
   {
     id: 'pubg-2026-05-gilt',
     game: 'pubg',
@@ -1130,32 +1094,20 @@ export const pubgEvents: GameEvent[] = [
     description: '5月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
-  // ---- GILT金装 27号重点 ----
-  {
-    id: 'pubg-2026-05-gilt-27',
-    game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
-    type: 'major_event',
-    startDate: '2026-05-27T02:00:00.000Z',
-    endDate: '2026-05-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
-    featured: true,
-  },
 
   // ============================================================
-  // 2026年6月活动
+  // 2026年6月活动 - S级
   // ============================================================
-  // ---- A级充值返利（6月） ----
+  // ---- S级充值返利（6月） ----
   {
-    id: 'pubg-2026-06-recharge-a',
+    id: 'pubg-2026-06-recharge-s',
     game: 'pubg',
-    title: '充值返利活动（A级）',
-    type: 'minor_event',
+    title: '充值返利活动（S级）',
+    type: 'major_event',
     startDate: '2026-06-06T02:00:00.000Z',
     endDate: '2026-06-15T01:59:00.000Z',
-    rewardInfo: '最高返50%UC',
-    description: '6月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
+    rewardInfo: '最高返80%UC',
+    description: '6月S级充值返利活动，返利比例更高，累计充值达到指定档位可获得丰厚返利，最高返80%UC。',
     featured: true,
   },
   // ---- 月中IP联动（6月） ----
@@ -1170,7 +1122,7 @@ export const pubgEvents: GameEvent[] = [
     description: '6月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
     featured: true,
   },
-  // ---- GILT金装（6月27日） ----
+  // ---- GILT金装（6月20-27日） ----
   {
     id: 'pubg-2026-06-gilt',
     game: 'pubg',
@@ -1182,16 +1134,352 @@ export const pubgEvents: GameEvent[] = [
     description: '6月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
-  // ---- GILT金装 27号重点 ----
+
+  // ============================================================
+  // 2026年7月活动 - A级
+  // ============================================================
+  // ---- A级充值返利（7月） ----
   {
-    id: 'pubg-2026-06-gilt-27',
+    id: 'pubg-2026-07-recharge-a',
     game: 'pubg',
-    title: 'GILT金装 - 27号特别活动',
+    title: '充值返利活动（A级）',
+    type: 'minor_event',
+    startDate: '2026-07-06T02:00:00.000Z',
+    endDate: '2026-07-15T01:59:00.000Z',
+    rewardInfo: '最高返50%UC',
+    description: '7月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
+    featured: true,
+  },
+  // ---- 月中IP联动（7月） ----
+  {
+    id: 'pubg-2026-07-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
     type: 'major_event',
-    startDate: '2026-06-27T02:00:00.000Z',
-    endDate: '2026-06-27T15:59:00.000Z',
-    rewardInfo: '限定金装大礼包',
-    description: '每月27日GILT金装重点活动，限时获取当月最稀有的金装套装和专属奖励。',
+    startDate: '2026-07-10T02:00:00.000Z',
+    endDate: '2026-08-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '7月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- A20 Royale Pass（7月-9月） ----
+  {
+    id: 'pubg-a20-rp',
+    game: 'pubg',
+    title: 'A20 Royale Pass 通行证',
+    type: 'major_event',
+    startDate: '2026-07-15T02:00:00.000Z',
+    endDate: '2026-09-14T01:59:00.000Z',
+    rewardInfo: '限定皮肤、载具涂装、升级材料',
+    description: 'A20赛季Royale Pass开启，北京时间7月15日10:00全球统一重置。升级解锁全套限定服装、载具皮肤、武器涂装和大量升级材料。',
+    featured: true,
+  },
+  // ---- 4.5版本大更新 ----
+  {
+    id: 'pubg-4.5-update',
+    game: 'pubg',
+    title: '4.5版本大更新 - 全新主题玩法',
+    type: 'major_event',
+    startDate: '2026-07-08T03:00:00.000Z',
+    endDate: '2026-09-06T23:59:00.000Z',
+    rewardInfo: '版本更新奖励',
+    description: '4.5大版本更新，北京时间7月8日11:00起分批推送。包含全新主题玩法、地图更新和系统优化。',
+    featured: true,
+  },
+  // ---- 4.5版本联动（版本+2天） ----
+  {
+    id: 'pubg-4.5-collab',
+    game: 'pubg',
+    title: '4.5版本联动活动（预估）',
+    type: 'major_event',
+    startDate: '2026-07-10T02:00:00.000Z',
+    endDate: '2026-08-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤',
+    description: '4.5版本更新后联动活动，限时获取联动主题限定服装和道具。',
+    featured: true,
+  },
+  // ---- GILT金装（7月20-27日） ----
+  {
+    id: 'pubg-2026-07-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（7月）',
+    type: 'major_event',
+    startDate: '2026-07-20T02:00:00.000Z',
+    endDate: '2026-07-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '7月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
+    featured: true,
+  },
+
+  // ============================================================
+  // 2026年8月活动 - A级
+  // ============================================================
+  // ---- A级充值返利（8月） ----
+  {
+    id: 'pubg-2026-08-recharge-a',
+    game: 'pubg',
+    title: '充值返利活动（A级）',
+    type: 'minor_event',
+    startDate: '2026-08-06T02:00:00.000Z',
+    endDate: '2026-08-15T01:59:00.000Z',
+    rewardInfo: '最高返50%UC',
+    description: '8月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
+    featured: true,
+  },
+  // ---- 月中IP联动（8月） ----
+  {
+    id: 'pubg-2026-08-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
+    type: 'major_event',
+    startDate: '2026-08-10T02:00:00.000Z',
+    endDate: '2026-09-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '8月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- GILT金装（8月20-27日） ----
+  {
+    id: 'pubg-2026-08-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（8月）',
+    type: 'major_event',
+    startDate: '2026-08-20T02:00:00.000Z',
+    endDate: '2026-08-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '8月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
+    featured: true,
+  },
+
+  // ============================================================
+  // 2026年9月活动 - S级
+  // ============================================================
+  // ---- S级充值返利（9月） ----
+  {
+    id: 'pubg-2026-09-recharge-s',
+    game: 'pubg',
+    title: '充值返利活动（S级）',
+    type: 'major_event',
+    startDate: '2026-09-06T02:00:00.000Z',
+    endDate: '2026-09-15T01:59:00.000Z',
+    rewardInfo: '最高返80%UC',
+    description: '9月S级充值返利活动，返利比例更高，累计充值达到指定档位可获得丰厚返利，最高返80%UC。',
+    featured: true,
+  },
+  // ---- 月中IP联动（9月） ----
+  {
+    id: 'pubg-2026-09-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
+    type: 'major_event',
+    startDate: '2026-09-10T02:00:00.000Z',
+    endDate: '2026-10-07T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '9月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- A21 Royale Pass（9月-11月） ----
+  {
+    id: 'pubg-a21-rp',
+    game: 'pubg',
+    title: 'A21 Royale Pass 通行证',
+    type: 'major_event',
+    startDate: '2026-09-15T02:00:00.000Z',
+    endDate: '2026-11-14T01:59:00.000Z',
+    rewardInfo: '限定皮肤、载具涂装、升级材料',
+    description: 'A21赛季Royale Pass开启，北京时间9月15日10:00全球统一重置。升级解锁全套限定服装、载具皮肤、武器涂装和大量升级材料。',
+    featured: true,
+  },
+  // ---- 4.6版本大更新 ----
+  {
+    id: 'pubg-4.6-update',
+    game: 'pubg',
+    title: '4.6版本大更新 - 全新主题玩法',
+    type: 'major_event',
+    startDate: '2026-09-04T03:00:00.000Z',
+    endDate: '2026-11-03T23:59:00.000Z',
+    rewardInfo: '版本更新奖励',
+    description: '4.6大版本更新，北京时间9月4日11:00起分批推送。包含全新主题玩法、地图更新和系统优化。',
+    featured: true,
+  },
+  // ---- 4.6版本联动（版本+2天） ----
+  {
+    id: 'pubg-4.6-collab',
+    game: 'pubg',
+    title: '4.6版本联动活动（预估）',
+    type: 'major_event',
+    startDate: '2026-09-06T02:00:00.000Z',
+    endDate: '2026-10-03T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤',
+    description: '4.6版本更新后联动活动，限时获取联动主题限定服装和道具。',
+    featured: true,
+  },
+  // ---- GILT金装（9月20-27日） ----
+  {
+    id: 'pubg-2026-09-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（9月）',
+    type: 'major_event',
+    startDate: '2026-09-20T02:00:00.000Z',
+    endDate: '2026-09-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '9月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
+    featured: true,
+  },
+
+  // ============================================================
+  // 2026年10月活动 - A级
+  // ============================================================
+  // ---- A级充值返利（10月） ----
+  {
+    id: 'pubg-2026-10-recharge-a',
+    game: 'pubg',
+    title: '充值返利活动（A级）',
+    type: 'minor_event',
+    startDate: '2026-10-06T02:00:00.000Z',
+    endDate: '2026-10-15T01:59:00.000Z',
+    rewardInfo: '最高返50%UC',
+    description: '10月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
+    featured: true,
+  },
+  // ---- 月中IP联动（10月） ----
+  {
+    id: 'pubg-2026-10-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
+    type: 'major_event',
+    startDate: '2026-10-10T02:00:00.000Z',
+    endDate: '2026-11-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '10月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- GILT金装（10月20-27日） ----
+  {
+    id: 'pubg-2026-10-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（10月）',
+    type: 'major_event',
+    startDate: '2026-10-20T02:00:00.000Z',
+    endDate: '2026-10-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '10月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
+    featured: true,
+  },
+
+  // ============================================================
+  // 2026年11月活动 - A级
+  // ============================================================
+  // ---- A级充值返利（11月） ----
+  {
+    id: 'pubg-2026-11-recharge-a',
+    game: 'pubg',
+    title: '充值返利活动（A级）',
+    type: 'minor_event',
+    startDate: '2026-11-06T02:00:00.000Z',
+    endDate: '2026-11-15T01:59:00.000Z',
+    rewardInfo: '最高返50%UC',
+    description: '11月A级充值返利活动，累计充值达到指定档位可获得丰厚返利。',
+    featured: true,
+  },
+  // ---- 月中IP联动（11月） ----
+  {
+    id: 'pubg-2026-11-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
+    type: 'major_event',
+    startDate: '2026-11-10T02:00:00.000Z',
+    endDate: '2026-12-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '11月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- A22 Royale Pass（11月-次年1月） ----
+  {
+    id: 'pubg-a22-rp',
+    game: 'pubg',
+    title: 'A22 Royale Pass 通行证',
+    type: 'major_event',
+    startDate: '2026-11-15T02:00:00.000Z',
+    endDate: '2027-01-14T01:59:00.000Z',
+    rewardInfo: '限定皮肤、载具涂装、升级材料',
+    description: 'A22赛季Royale Pass开启，北京时间11月15日10:00全球统一重置。升级解锁全套限定服装、载具皮肤、武器涂装和大量升级材料。',
+    featured: true,
+  },
+  // ---- 4.7版本大更新 ----
+  {
+    id: 'pubg-4.7-update',
+    game: 'pubg',
+    title: '4.7版本大更新 - 全新主题玩法',
+    type: 'major_event',
+    startDate: '2026-11-06T03:00:00.000Z',
+    endDate: '2027-01-05T23:59:00.000Z',
+    rewardInfo: '版本更新奖励',
+    description: '4.7大版本更新，北京时间11月6日11:00起分批推送。包含全新主题玩法、地图更新和系统优化。',
+    featured: true,
+  },
+  // ---- 4.7版本联动（版本+2天） ----
+  {
+    id: 'pubg-4.7-collab',
+    game: 'pubg',
+    title: '4.7版本联动活动（预估）',
+    type: 'major_event',
+    startDate: '2026-11-08T02:00:00.000Z',
+    endDate: '2026-12-05T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤',
+    description: '4.7版本更新后联动活动，限时获取联动主题限定服装和道具。',
+    featured: true,
+  },
+  // ---- GILT金装（11月20-27日） ----
+  {
+    id: 'pubg-2026-11-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（11月）',
+    type: 'major_event',
+    startDate: '2026-11-20T02:00:00.000Z',
+    endDate: '2026-11-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '11月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
+    featured: true,
+  },
+
+  // ============================================================
+  // 2026年12月活动 - S级
+  // ============================================================
+  // ---- S级充值返利（12月） ----
+  {
+    id: 'pubg-2026-12-recharge-s',
+    game: 'pubg',
+    title: '充值返利活动（S级）',
+    type: 'major_event',
+    startDate: '2026-12-06T02:00:00.000Z',
+    endDate: '2026-12-15T01:59:00.000Z',
+    rewardInfo: '最高返80%UC',
+    description: '12月S级充值返利活动，返利比例更高，累计充值达到指定档位可获得丰厚返利，最高返80%UC。',
+    featured: true,
+  },
+  // ---- 月中IP联动（12月） ----
+  {
+    id: 'pubg-2026-12-collab',
+    game: 'pubg',
+    title: 'IP联动活动 - Prize Path & 幸运转盘',
+    type: 'major_event',
+    startDate: '2026-12-10T02:00:00.000Z',
+    endDate: '2027-01-06T01:59:00.000Z',
+    rewardInfo: '联动限定皮肤、载具涂装',
+    description: '12月IP联动活动，包含Prize Path奖励路线和幸运转盘抽奖。',
+    featured: true,
+  },
+  // ---- GILT金装（12月20-27日） ----
+  {
+    id: 'pubg-2026-12-gilt',
+    game: 'pubg',
+    title: 'GILT金装活动（12月）',
+    type: 'major_event',
+    startDate: '2026-12-20T02:00:00.000Z',
+    endDate: '2026-12-27T01:59:00.000Z',
+    rewardInfo: '金装皮肤、枪械涂装、动作表情',
+    description: '12月GILT金装活动，包含高价值皮肤、枪械涂装、动作表情等丰富内容。',
     featured: true,
   },
 ];
