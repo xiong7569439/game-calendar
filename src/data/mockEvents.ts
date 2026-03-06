@@ -970,7 +970,7 @@ export const pubgEvents: GameEvent[] = [
     title: '周年庆宝箱',
     type: 'major_event',
     startDate: '2026-03-06T02:00:00.000Z',
-    endDate: '2026-06-11T15:59:00.000Z',
+    endDate: '2026-05-10T15:59:00.000Z',
     rewardInfo: '600UC/10次',
     description: '周年庆宝箱活动，600UC可开启十次。奖励包括：小丑女王主题限定皮肤（武器、服装、头盔、背包等）、周年庆专属vouchers（可用于特殊转盘抽奖）、UC、优惠券、主题表情动作、周年纪念平底锅皮肤、三级头盔皮肤。',
     featured: true,
