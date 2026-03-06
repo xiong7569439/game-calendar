@@ -8,6 +8,17 @@ export interface VersionBaseConfig {
   versionPrefix?: string;   // 版本前缀，如 "v"
 }
 
+// PUBG Mobile RP 赛季精确时间表（2026年）
+// 每个赛季结束时间 = 下个赛季开始时间
+export const pubgRpSchedule: { version: string; startDate: string; endDate: string }[] = [
+  { version: 'A17', startDate: '2026-01-11T02:00:00.000Z', endDate: '2026-03-15T01:59:00.000Z' },
+  { version: 'A18', startDate: '2026-03-15T02:00:00.000Z', endDate: '2026-05-17T01:59:00.000Z' },
+  { version: 'A19', startDate: '2026-05-17T02:00:00.000Z', endDate: '2026-07-14T01:59:00.000Z' },
+  { version: 'A20', startDate: '2026-07-14T02:00:00.000Z', endDate: '2026-09-15T01:59:00.000Z' },
+  { version: 'A21', startDate: '2026-09-15T02:00:00.000Z', endDate: '2026-11-16T01:59:00.000Z' },
+  { version: 'A22', startDate: '2026-11-16T02:00:00.000Z', endDate: '2027-01-11T01:59:00.000Z' },
+];
+
 // 各游戏版本基准配置
 export const versionBaseConfigs: Record<GameType, VersionBaseConfig> = {
   genshin: {
@@ -36,8 +47,8 @@ export const versionBaseConfigs: Record<GameType, VersionBaseConfig> = {
   },
   pubg: {
     baseVersion: 'A17',
-    baseDate: '2025-12-15T00:00:00.000Z',  // A17 开始时间
-    versionDays: 90,  // 约3个月一个赛季
+    baseDate: '2026-01-11T02:00:00.000Z',  // A17 RP 开始时间（北京时间10:00 = UTC 02:00）
+    versionDays: 64,  // 默认使用A17的天数作为基准
     versionPrefix: '',
   },
 };
@@ -74,6 +85,20 @@ function formatVersion(major: number, minor: number, prefix: string = ''): strin
 
 // 计算当前版本
 export function getCurrentVersion(game: GameType): string {
+  // PUBG 使用精确的 RP 赛季时间表
+  if (game === 'pubg') {
+    const now = new Date();
+    for (const season of pubgRpSchedule) {
+      const startDate = new Date(season.startDate);
+      const endDate = new Date(season.endDate);
+      if (now >= startDate && now < endDate) {
+        return season.version;
+      }
+    }
+    // 如果当前时间不在任何赛季内，返回最后一个赛季
+    return pubgRpSchedule[pubgRpSchedule.length - 1]?.version || 'A17';
+  }
+
   const config = versionBaseConfigs[game];
   if (!config) return '';
 
@@ -107,6 +132,16 @@ export function getCurrentVersion(game: GameType): string {
 
 // 获取版本开始日期
 export function getVersionStartDate(game: GameType, version?: string): Date {
+  // PUBG 使用精确的 RP 赛季时间表
+  if (game === 'pubg') {
+    const targetVersion = version || getCurrentVersion(game);
+    const season = pubgRpSchedule.find(s => s.version === targetVersion);
+    if (season) {
+      return new Date(season.startDate);
+    }
+    return new Date();
+  }
+
   const config = versionBaseConfigs[game];
   if (!config) return new Date();
 
@@ -139,6 +174,16 @@ export function getVersionStartDate(game: GameType, version?: string): Date {
 
 // 获取版本结束日期
 export function getVersionEndDate(game: GameType, version?: string): Date {
+  // PUBG 使用精确的 RP 赛季时间表
+  if (game === 'pubg') {
+    const targetVersion = version || getCurrentVersion(game);
+    const season = pubgRpSchedule.find(s => s.version === targetVersion);
+    if (season) {
+      return new Date(season.endDate);
+    }
+    return new Date();
+  }
+
   const startDate = getVersionStartDate(game, version);
   const config = versionBaseConfigs[game];
   if (!config) return startDate;
@@ -177,9 +222,75 @@ export function getVersionInfo(game: GameType): VersionInfo {
   };
 }
 
+// 根据日期获取 PUBG RP 版本
+function getPubgRpVersionByDate(date: Date): string {
+  for (const season of pubgRpSchedule) {
+    const startDate = new Date(season.startDate);
+    const endDate = new Date(season.endDate);
+    // 如果日期在赛季内或赛季开始前后几天内，返回该赛季版本
+    if (date >= startDate && date < endDate) {
+      return season.version;
+    }
+  }
+  // 如果不在任何赛季内，找到最接近的赛季
+  for (let i = 0; i < pubgRpSchedule.length - 1; i++) {
+    const currentSeason = pubgRpSchedule[i];
+    const nextSeason = pubgRpSchedule[i + 1];
+    const seasonEnd = new Date(currentSeason.endDate);
+    const nextStart = new Date(nextSeason.startDate);
+    if (date >= seasonEnd && date < nextStart) {
+      // 在赛季间隙，返回下一个赛季
+      return nextSeason.version;
+    }
+  }
+  // 默认返回最后一个赛季
+  return pubgRpSchedule[pubgRpSchedule.length - 1]?.version || 'A17';
+}
+
+// PUBG 大版本更新时间表（2026年）
+// 用于将大版本号（如4.2）映射到对应的时间段
+const pubgMajorVersionSchedule: { version: string; startDate: string; rpVersion: string }[] = [
+  { version: '4.2', startDate: '2026-01-08T03:00:00.000Z', rpVersion: 'A17' },
+  { version: '4.3', startDate: '2026-03-12T03:00:00.000Z', rpVersion: 'A18' },
+  { version: '4.4', startDate: '2026-05-13T03:00:00.000Z', rpVersion: 'A19' },
+  { version: '4.5', startDate: '2026-07-10T03:00:00.000Z', rpVersion: 'A20' },
+  { version: '4.6', startDate: '2026-09-10T03:00:00.000Z', rpVersion: 'A21' },
+  { version: '4.7', startDate: '2026-11-11T03:00:00.000Z', rpVersion: 'A22' },
+];
+
+// 根据日期获取 PUBG 大版本号
+function getPubgMajorVersionByDate(date: Date): string {
+  for (let i = 0; i < pubgMajorVersionSchedule.length; i++) {
+    const current = pubgMajorVersionSchedule[i];
+    const next = pubgMajorVersionSchedule[i + 1];
+    const currentStart = new Date(current.startDate);
+    const nextStart = next ? new Date(next.startDate) : new Date('2027-12-31');
+    
+    if (date >= currentStart && date < nextStart) {
+      return current.version;
+    }
+  }
+  // 默认返回第一个
+  return pubgMajorVersionSchedule[0]?.version || '4.2';
+}
+
 // 替换文本中的版本号
-export function replaceVersionInText(text: string, game: GameType): string {
-  const version = getCurrentVersion(game);
+export function replaceVersionInText(text: string, game: GameType, eventStartDate?: string): string {
+  let version = getCurrentVersion(game);
+  
+  // 对于 PUBG，如果有活动开始日期，根据日期确定版本
+  if (game === 'pubg' && eventStartDate) {
+    const startDate = new Date(eventStartDate);
+    const rpVersion = getPubgRpVersionByDate(startDate);
+    const majorVersion = getPubgMajorVersionByDate(startDate);
+    
+    // 分别替换 RP 版本号（A17）和大版本号（4.2）
+    let result = text;
+    result = result.replace(/\bA\d+\b/g, rpVersion);  // 替换 A17 格式
+    result = result.replace(/\b\d+\.\d+\b/g, majorVersion);  // 替换 4.2 格式（大版本号）
+    return result;
+  }
+  
   if (!version) return text;
 
   // 替换各种版本号格式
@@ -199,6 +310,6 @@ export function replaceVersionInText(text: string, game: GameType): string {
 }
 
 // 获取带版本号的活动标题
-export function getEventTitleWithVersion(event: { title: string; game: GameType }): string {
-  return replaceVersionInText(event.title, event.game);
+export function getEventTitleWithVersion(event: { title: string; game: GameType; startDate?: string }): string {
+  return replaceVersionInText(event.title, event.game, event.startDate);
 }
