@@ -14,13 +14,19 @@ const typeIcons = {
 };
 
 export function CategoryFilter() {
-  const { selectedTypes, toggleEventType, showEnded, setShowEnded } = useGameStore();
+  const { selectedTypes, toggleEventType, showEnded, setShowEnded, selectedGame } = useGameStore();
+
+  // PUBG Mobile 不显示"卡池/祈愿"标签
+  const filteredEventTypes = eventTypesConfig.filter(type => {
+    if (selectedGame === 'pubg' && type.id === 'banner') return false;
+    return true;
+  });
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       {/* 活动类型筛选 */}
       <div className="flex items-center gap-2">
-        {eventTypesConfig.map((type) => {
+        {filteredEventTypes.map((type) => {
           const isSelected = selectedTypes.includes(type.id);
           const Icon = typeIcons[type.id as keyof typeof typeIcons];
 

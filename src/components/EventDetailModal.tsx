@@ -187,45 +187,50 @@ export function EventDetailModal() {
                   </div>
                 </div>
 
-                {/* 欧服时间 */}
-                <div className="p-4 rounded-xl border bg-white/5"
-                  style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Globe className="w-5 h-5 text-white/50" />
-                    <span className="font-semibold text-white/80">欧服 (Europe)</span>
-                    <span className="text-xs text-white/40">· 比亚服晚7小时</span>
-                  </div>
-                  <div className="space-y-2 font-mono text-white/70">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-white/30 w-12">开始</span>
-                      <span>{timeDisplayFull.europe.start}</span>
+                {/* PUBG Mobile 不显示欧服和美服时间 */}
+                {selectedEvent.game !== 'pubg' && (
+                  <>
+                    {/* 欧服时间 */}
+                    <div className="p-4 rounded-xl border bg-white/5"
+                      style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Globe className="w-5 h-5 text-white/50" />
+                        <span className="font-semibold text-white/80">欧服 (Europe)</span>
+                        <span className="text-xs text-white/40">· 比亚服晚7小时</span>
+                      </div>
+                      <div className="space-y-2 font-mono text-white/70">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-white/30 w-12">开始</span>
+                          <span>{timeDisplayFull.europe.start}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-white/30 w-12">结束</span>
+                          <span>{timeDisplayFull.europe.end}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-white/30 w-12">结束</span>
-                      <span>{timeDisplayFull.europe.end}</span>
-                    </div>
-                  </div>
-                </div>
 
-                {/* 美服时间 */}
-                <div className="p-4 rounded-xl border bg-white/5"
-                  style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Globe className="w-5 h-5 text-white/50" />
-                    <span className="font-semibold text-white/80">美服 (America)</span>
-                    <span className="text-xs text-white/40">· 比亚服晚13小时</span>
-                  </div>
-                  <div className="space-y-2 font-mono text-white/70">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-white/30 w-12">开始</span>
-                      <span>{timeDisplayFull.america.start}</span>
+                    {/* 美服时间 */}
+                    <div className="p-4 rounded-xl border bg-white/5"
+                      style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Globe className="w-5 h-5 text-white/50" />
+                        <span className="font-semibold text-white/80">美服 (America)</span>
+                        <span className="text-xs text-white/40">· 比亚服晚13小时</span>
+                      </div>
+                      <div className="space-y-2 font-mono text-white/70">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-white/30 w-12">开始</span>
+                          <span>{timeDisplayFull.america.start}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-white/30 w-12">结束</span>
+                          <span>{timeDisplayFull.america.end}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-white/30 w-12">结束</span>
-                      <span>{timeDisplayFull.america.end}</span>
-                    </div>
-                  </div>
-                </div>
+                  </>
+                )}
               </div>
 
               {/* 奖励信息 */}

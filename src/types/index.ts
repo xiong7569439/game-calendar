@@ -37,6 +37,13 @@ export interface MultiTimezoneTime {
   america: string;
 }
 
+// 卡池角色信息
+export interface BannerCharacter {
+  name: string;
+  rarity: 5 | 4; // 5星或4星
+  isNew?: boolean; // 是否新角色
+}
+
 // 活动数据
 export interface GameEvent {
   id: string;
@@ -50,6 +57,7 @@ export interface GameEvent {
   description?: string;
   featured?: boolean; // 是否为重点活动
   url?: string; // 活动详情页链接
+  characters?: BannerCharacter[]; // 卡池角色信息（仅卡池活动使用）
 }
 
 // 筛选状态

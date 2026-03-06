@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GameEvent, EventStatus } from '@/types';
+import { GameEvent, EventStatus, BannerCharacter } from '@/types';
 import { getGameConfig, getEventTypeConfig } from '@/data/games';
 import { 
   getEventStatus, 
@@ -11,7 +11,7 @@ import {
 } from '@/store/useGameStore';
 import { getMultiTimezoneDisplayShort } from '@/lib/timeUtils';
 import { getEventTitleWithVersion } from '@/lib/versionUtils';
-import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar, Globe } from 'lucide-react';
+import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar, Globe, Star } from 'lucide-react';
 
 // 活动类型图标映射
 const typeIcons = {
@@ -124,22 +124,64 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
             <span className="text-xs text-white/40 w-10 flex-shrink-0">亚服</span>
             <span className="font-mono">{timeDisplay.asia}</span>
           </div>
-          {/* 欧服时间 */}
-          <div className="flex items-center gap-2 text-white/50 text-sm">
-            <Globe className="w-4 h-4 flex-shrink-0" />
-            <span className="text-xs text-white/30 w-10 flex-shrink-0">欧服</span>
-            <span className="font-mono">{timeDisplay.europe}</span>
-          </div>
-          {/* 美服时间 */}
-          <div className="flex items-center gap-2 text-white/50 text-sm">
-            <Globe className="w-4 h-4 flex-shrink-0" />
-            <span className="text-xs text-white/30 w-10 flex-shrink-0">美服</span>
-            <span className="font-mono">{timeDisplay.america}</span>
-          </div>
+          {/* PUBG Mobile 不显示欧服和美服时间 */}
+          {event.game !== 'pubg' && (
+            <>
+              {/* 欧服时间 */}
+              <div className="flex items-center gap-2 text-white/50 text-sm">
+                <Globe className="w-4 h-4 flex-shrink-0" />
+                <span className="text-xs text-white/30 w-10 flex-shrink-0">欧服</span>
+                <span className="font-mono">{timeDisplay.europe}</span>
+              </div>
+              {/* 美服时间 */}
+              <div className="flex items-center gap-2 text-white/50 text-sm">
+                <Globe className="w-4 h-4 flex-shrink-0" />
+                <span className="text-xs text-white/30 w-10 flex-shrink-0">美服</span>
+                <span className="font-mono">{timeDisplay.america}</span>
+              </div>
+            </>
+          )}
         </div>
 
-        {/* 奖励信息 */}
-        {event.rewardInfo && (
+        {/* 卡池角色信息 */}
+        {event.type === 'banner' && event.characters && event.characters.length > 0 && (
+          <div className="mb-4">
+            {/* 5星角色 */}
+            {event.characters.filter((c: BannerCharacter) => c.rarity === 5).length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                {event.characters
+                  .filter((c: BannerCharacter) => c.rarity === 5)
+                  .map((char: BannerCharacter, idx: number, arr: BannerCharacter[]) => (
+                    <span key={char.name} className="text-sm text-white/90">
+                      {char.name}
+                      {char.isNew && (
+                        <span className="ml-0.5 text-xs text-amber-400">(新)</span>
+                      )}
+                      {idx < arr.length - 1 && <span className="text-white/40">、</span>}
+                    </span>
+                  ))}
+              </div>
+            )}
+            {/* 4星角色 */}
+            {event.characters.filter((c: BannerCharacter) => c.rarity === 4).length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5">
+                <Star className="w-3 h-3 text-purple-400 fill-purple-400" />
+                {event.characters
+                  .filter((c: BannerCharacter) => c.rarity === 4)
+                  .map((char: BannerCharacter, idx: number, arr: BannerCharacter[]) => (
+                    <span key={char.name} className="text-sm text-white/70">
+                      {char.name}
+                      {idx < arr.length - 1 && <span className="text-white/30">、</span>}
+                    </span>
+                  ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 奖励信息（非卡池活动） */}
+        {event.rewardInfo && event.type !== 'banner' && (
           <div className="flex items-center gap-2 mb-4">
             <div 
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold"
