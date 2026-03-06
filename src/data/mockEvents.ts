@@ -515,7 +515,7 @@ export const pubgEvents: GameEvent[] = [
     id: 'pubg-a17-rp',
     game: 'pubg',
     title: 'A17 Royale Pass 通行证',
-    type: 'banner',
+    type: 'major_event',
     startDate: '2025-12-15T00:00:00.000Z',
     endDate: '2026-03-14T23:59:00.000Z',
     rewardInfo: '限定皮肤',

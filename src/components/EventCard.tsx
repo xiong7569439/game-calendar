@@ -9,7 +9,9 @@ import {
   getProgressPercent,
   useGameStore 
 } from '@/store/useGameStore';
-import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar } from 'lucide-react';
+import { getMultiTimezoneDisplayShort } from '@/lib/timeUtils';
+import { getEventTitleWithVersion } from '@/lib/versionUtils';
+import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar, Globe } from 'lucide-react';
 
 // 活动类型图标映射
 const typeIcons = {
@@ -42,17 +44,8 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
   const TypeIcon = typeIcons[event.type];
   const statusInfo = statusConfig[status];
 
-  // 格式化日期 - 显示月/日，跨年则显示年份
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    const now = new Date();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    if (date.getFullYear() !== now.getFullYear()) {
-      return `${date.getFullYear()}/${month}/${day}`;
-    }
-    return `${month}/${day}`;
-  };
+  // 获取多时区时间显示
+  const timeDisplay = getMultiTimezoneDisplayShort(event.startDate, event.endDate);
 
   return (
     <motion.div
@@ -120,13 +113,29 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
           {event.type === 'routine' && (
             <span className="inline-block mr-1 text-sm opacity-70">↺</span>
           )}
-          {event.title}
+          {getEventTitleWithVersion(event)}
         </h3>
 
-        {/* 时间信息 */}
-        <div className="flex items-center gap-2 text-white/60 text-sm mb-3">
-          <Calendar className="w-4 h-4" />
-          <span>{formatDate(event.startDate)} - {formatDate(event.endDate)}</span>
+        {/* 时间信息 - 多时区显示 */}
+        <div className="space-y-1.5 mb-3">
+          {/* 亚服时间 */}
+          <div className="flex items-center gap-2 text-white/70 text-sm">
+            <Calendar className="w-4 h-4 flex-shrink-0" />
+            <span className="text-xs text-white/40 w-10 flex-shrink-0">亚服</span>
+            <span className="font-mono">{timeDisplay.asia}</span>
+          </div>
+          {/* 欧服时间 */}
+          <div className="flex items-center gap-2 text-white/50 text-sm">
+            <Globe className="w-4 h-4 flex-shrink-0" />
+            <span className="text-xs text-white/30 w-10 flex-shrink-0">欧服</span>
+            <span className="font-mono">{timeDisplay.europe}</span>
+          </div>
+          {/* 美服时间 */}
+          <div className="flex items-center gap-2 text-white/50 text-sm">
+            <Globe className="w-4 h-4 flex-shrink-0" />
+            <span className="text-xs text-white/30 w-10 flex-shrink-0">美服</span>
+            <span className="font-mono">{timeDisplay.america}</span>
+          </div>
         </div>
 
         {/* 奖励信息 */}

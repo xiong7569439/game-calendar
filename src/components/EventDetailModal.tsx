@@ -3,7 +3,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore, getEventStatus, getRemainingDays, getProgressPercent } from '@/store/useGameStore';
 import { getGameConfig, getEventTypeConfig } from '@/data/games';
-import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar, X, ExternalLink } from 'lucide-react';
+import { getMultiTimezoneDisplay, formatDateFull } from '@/lib/timeUtils';
+import { getEventTitleWithVersion, getVersionInfo } from '@/lib/versionUtils';
+import { Sparkles, Trophy, Gift, RefreshCw, Clock, Calendar, X, ExternalLink, Globe } from 'lucide-react';
 
 // 活动类型图标映射
 const typeIcons = {
@@ -31,10 +33,24 @@ export function EventDetailModal() {
   
   const TypeIcon = typeIcons[selectedEvent.type];
 
-  // 格式化日期
-  const formatDateFull = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  // 获取当前版本信息
+  const versionInfo = getVersionInfo(selectedEvent.game);
+
+  // 获取多时区时间显示
+  const timeDisplay = getMultiTimezoneDisplay(selectedEvent.startDate, selectedEvent.endDate);
+  const timeDisplayFull = {
+    asia: {
+      start: formatDateFull(selectedEvent.startDate, 'asia'),
+      end: formatDateFull(selectedEvent.endDate, 'asia'),
+    },
+    europe: {
+      start: formatDateFull(selectedEvent.startDate, 'europe'),
+      end: formatDateFull(selectedEvent.endDate, 'europe'),
+    },
+    america: {
+      start: formatDateFull(selectedEvent.startDate, 'america'),
+      end: formatDateFull(selectedEvent.endDate, 'america'),
+    },
   };
 
   // 状态文本
@@ -102,8 +118,13 @@ export function EventDetailModal() {
                 </div>
                 
                 <h2 className="text-2xl font-bold text-white">
-                  {selectedEvent.title}
+                  {getEventTitleWithVersion(selectedEvent)}
                 </h2>
+                <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white/70">
+                  <span>当前版本: {versionInfo.version}</span>
+                  <span className="text-white/40">|</span>
+                  <span>剩余 {versionInfo.daysRemaining} 天</span>
+                </div>
               </div>
             </div>
 
@@ -141,20 +162,67 @@ export function EventDetailModal() {
                 )}
               </div>
 
-              {/* 时间信息 */}
+              {/* 时间信息 - 多时区显示 */}
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
                   活动时间
                 </h3>
-                <div className="flex items-center gap-3 text-white">
-                  <Calendar className="w-5 h-5 text-white/40" />
-                  <div>
-                    <div className="font-medium">
-                      {formatDateFull(selectedEvent.startDate)}
+
+                {/* 亚服时间 */}
+                <div className="p-4 rounded-xl border bg-white/5"
+                  style={{ borderColor: `${gameConfig?.color}30` }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar className="w-5 h-5" style={{ color: gameConfig?.color }} />
+                    <span className="font-semibold text-white">亚服 (Asia)</span>
+                  </div>
+                  <div className="space-y-2 font-mono text-white/90">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/40 w-12">开始</span>
+                      <span>{timeDisplayFull.asia.start}</span>
                     </div>
-                    <div className="text-white/40">至</div>
-                    <div className="font-medium">
-                      {formatDateFull(selectedEvent.endDate)}
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/40 w-12">结束</span>
+                      <span>{timeDisplayFull.asia.end}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 欧服时间 */}
+                <div className="p-4 rounded-xl border bg-white/5"
+                  style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe className="w-5 h-5 text-white/50" />
+                    <span className="font-semibold text-white/80">欧服 (Europe)</span>
+                    <span className="text-xs text-white/40">· 比亚服晚7小时</span>
+                  </div>
+                  <div className="space-y-2 font-mono text-white/70">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/30 w-12">开始</span>
+                      <span>{timeDisplayFull.europe.start}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/30 w-12">结束</span>
+                      <span>{timeDisplayFull.europe.end}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 美服时间 */}
+                <div className="p-4 rounded-xl border bg-white/5"
+                  style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe className="w-5 h-5 text-white/50" />
+                    <span className="font-semibold text-white/80">美服 (America)</span>
+                    <span className="text-xs text-white/40">· 比亚服晚13小时</span>
+                  </div>
+                  <div className="space-y-2 font-mono text-white/70">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/30 w-12">开始</span>
+                      <span>{timeDisplayFull.america.start}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-white/30 w-12">结束</span>
+                      <span>{timeDisplayFull.america.end}</span>
                     </div>
                   </div>
                 </div>
@@ -188,7 +256,7 @@ export function EventDetailModal() {
                     活动详情
                   </h3>
                   <p className="text-white/80 leading-relaxed">
-                    {selectedEvent.description}
+                    {getEventTitleWithVersion({ title: selectedEvent.description, game: selectedEvent.game })}
                   </p>
                 </div>
               )}

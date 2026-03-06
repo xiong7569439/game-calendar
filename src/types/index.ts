@@ -19,14 +19,32 @@ export interface GameConfig {
   icon: string;
 }
 
+// 服务器时区类型
+export type ServerRegion = 'asia' | 'europe' | 'america';
+
+// 服务器时区配置
+export interface ServerRegionConfig {
+  id: ServerRegion;
+  label: string;
+  labelEn: string;
+  offsetHours: number; // 相对于亚服的时差（小时）
+}
+
+// 多时区时间显示
+export interface MultiTimezoneTime {
+  asia: string;
+  europe: string;
+  america: string;
+}
+
 // 活动数据
 export interface GameEvent {
   id: string;
   game: GameType;
   title: string;
   type: EventType;
-  startDate: string; // ISO格式
-  endDate: string; // ISO格式
+  startDate: string; // ISO格式（亚服时间）
+  endDate: string; // ISO格式（亚服时间）
   rewardInfo?: string; // 例如: "x960", "x420"
   imageUrl?: string;
   description?: string;
