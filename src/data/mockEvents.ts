@@ -206,6 +206,9 @@ export const hsrEvents: GameEvent[] = [
       { name: '刻律德菈', rarity: 5 },
       { name: '乱破', rarity: 5 },
       { name: '花火', rarity: 5 },
+      { name: '佩拉', rarity: 4 },
+      { name: '寒鸦', rarity: 4 },
+      { name: '青雀', rarity: 4 },
     ],
   },
   {
@@ -960,7 +963,7 @@ export const pubgEvents: GameEvent[] = [
     startDate: '2026-03-14T02:00:00.000Z',
     endDate: '2026-04-11T01:59:00.000Z',
     rewardInfo: '联动限定皮肤',
-    description: '4.3版本更新后联动活动，限时获取联动主题限定服装和道具。',
+    description: 'A18赛季版本更新后联动活动，限时获取联动主题限定服装和道具。',
     featured: true,
   },
   // ---- 周年庆宝箱活动 ----

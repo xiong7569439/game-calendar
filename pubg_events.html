@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- é¡µé¢éç¨ header éç½® -->
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+</body>
+<script src="https://www.pubgmobile.com/sgp/milo-next/long_cache_30d/milo.es5.js"></script>
+
+<script>
+    var checkip = function () {
+        try {
+            var lalanguage = !!navigator.language
+            if (lalanguage) {
+                if (navigator.language.slice(0, 2) === "pt") {
+                    window.location.href = "/pt/events.shtml";
+                } else if (navigator.language.slice(0, 2) === "es") {
+                    window.location.href = "/es/events.shtml";
+                } else {
+                    Milo.setCommonConfig({
+                        needPromiseCallback: false,
+                        activityApi: "https://webide.amsoveasea.com/amside/page/12_4riNOt",
+                        ideApi: "https://webide.amsoveasea.com/ide/"
+                    });
+                    var flow = {
+                        actId: '12_4riNOt',
+                        token: '8PQBoe',
+                        loading: false, // å¼å¯loadingæµ®å±,é»è®¤å¼å¯
+                        sData: {},
+                        success: function (res) {
+                            result = res.details.jData
+                            switch (result.country.toLocaleLowerCase()) {
+                                case 'th':
+                                    window.location.href = "/th/events.shtml";
+                                    break;
+                                case 'es':
+                                    window.location.href = "/es/events.shtml";
+                                    break;
+                                case 'mx':
+                                    window.location.href = "/es/events.shtml";
+                                    break;
+                                case 'fr':
+                                    window.location.href = "/fr/events.shtml";
+                                    break;
+                                case 'tr':
+                                    window.location.href = "/tr/events.shtml";
+                                    break;
+                                case 'vn':
+                                    window.location.href = "/vi/events.shtml";
+                                    break
+                                case 'de':
+                                    window.location.href = "/de/events.shtml";
+                                    break;
+                                case 'id':
+                                    window.location.href = "/id/events.shtml";
+                                    break;
+                                case 'pt':
+                                    window.location.href = "/pt/events.shtml";
+                                    break;
+                                case 'ru':
+                                    window.location.href = "/ru/events.shtml";
+                                    break;
+                                case 'hk':
+                                    window.location.href = "/HK/events.shtml";
+                                    break;
+                                case 'tw':
+                                    window.location.href = "/TW/events.shtml";
+                                    break;
+                                case 'sa':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'ae':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'eg':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'qa':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'kw':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'lb':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'om':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'iq':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'jo':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'dz':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'ps':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'bh':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'ly':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'ma':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'tn':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'ye':
+                                    window.location.href = "/ar/events.shtml";
+                                    break;
+                                case 'pk':
+                                    window.location.href = "/uz/events.shtml";
+                                    break;
+                                case 'my':
+                                    window.location.href = "/my/events.shtml";
+                                    break;
+                                default:
+                                    window.location.href = "/en-US/events.shtml";
+                            }
+                        },
+                        fail: function (res) {
+                            console.log(res)
+                        }
+                    }
+                    Milo.emit(flow)
+                }
+            } else {
+                window.location.href = "/en-US/events.shtml";
+            }
+        } catch (error) {
+            window.location.href = "/en-US/events.shtml";
+        }
+    }
+    //checkip();
+    window.location.href = "/en-US/events.shtml";
+</script>
+
+</html>
