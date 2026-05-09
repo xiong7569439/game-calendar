@@ -1406,6 +1406,646 @@ export const pubgEvents: GameEvent[] = [
 ];
 
 // ============================================================
+// Arena Breakout Mobile 活动数据（FPS掠夺类，腾讯天美）
+// 节律：每周四重置（UTC 02:00），赛季约 60 天
+// 当前赛季：S9（2026-03-05 ~ 2026-05-03）
+// 数据为结构化占位，供后续爬虫/运营日历覆盖
+// ============================================================
+export const arenaBreakoutMobileEvents: GameEvent[] = [
+  {
+    id: 'abm-s9-pass',
+    game: 'arenaBreakoutMobile',
+    title: 'S9赛季战场通行证',
+    type: 'banner',
+    startDate: '2026-03-05T02:00:00.000Z',
+    endDate: '2026-05-03T01:59:00.000Z',
+    rewardInfo: '黑市币×5000、限定服装',
+    description: 'S9赛季战场通行证，升级解锁限定盔甲、背包液价和枪械贴纸。',
+    featured: true,
+  },
+  {
+    id: 'abm-2026-04-raid',
+    game: 'arenaBreakoutMobile',
+    title: '「卫星城」地图轮换',
+    type: 'major_event',
+    startDate: '2026-04-10T02:00:00.000Z',
+    endDate: '2026-05-03T01:59:00.000Z',
+    rewardInfo: '高级战利品箱',
+    description: 'S9后期上线「卫星城」新地图，含高价值物资刷新点和集合强制线的调整。',
+    featured: true,
+  },
+  {
+    id: 'abm-2026-04-weekly',
+    game: 'arenaBreakoutMobile',
+    title: '周常战备任务（每周四重置）',
+    type: 'routine',
+    startDate: '2026-04-23T02:00:00.000Z',
+    endDate: '2026-04-30T01:59:00.000Z',
+    rewardInfo: '战备盱券×3',
+    description: '每周四凌晨2:00 UTC（北京时10:00）重置周常任务，三档任务全完成可领高级盱券。',
+    featured: false,
+  },
+  {
+    id: 'abm-2026-04-blackmarket',
+    game: 'arenaBreakoutMobile',
+    title: '限时黑市折扣周',
+    type: 'minor_event',
+    startDate: '2026-04-18T02:00:00.000Z',
+    endDate: '2026-04-25T01:59:00.000Z',
+    rewardInfo: '指定商品 30-50% OFF',
+    description: '汉卡约更新，部分热门枪械配件、防弹装备持续7日折扣。',
+    featured: false,
+  },
+  {
+    id: 'abm-2026-04-collection',
+    game: 'arenaBreakoutMobile',
+    title: '月度特殊藏品活动',
+    type: 'minor_event',
+    startDate: '2026-04-01T02:00:00.000Z',
+    endDate: '2026-04-30T15:59:00.000Z',
+    rewardInfo: '珍稀收藏品',
+    description: '4月藏品系列，可通过挑战任务和折扣商城收集，可兼容后续版本。',
+    featured: false,
+  },
+  {
+    id: 'abm-s10-preview',
+    game: 'arenaBreakoutMobile',
+    title: 'S10赛季预告',
+    type: 'major_event',
+    startDate: '2026-05-03T02:00:00.000Z',
+    endDate: '2026-07-02T01:59:00.000Z',
+    rewardInfo: '赛季奖励',
+    description: 'S10赛季即将开启，包含新地图、新武器和平衡性调整，更新补偿即将发放。',
+    featured: true,
+  },
+];
+
+// ============================================================
+// Arena Breakout: Infinite（PC）活动数据（Steam/全球）
+// 节律：每周三重置（Steam 维护时间），赛季约 70 天
+// 当前赛季：S5（2026-03-05 ~ 2026-05-14）
+// ============================================================
+export const arenaBreakoutPCEvents: GameEvent[] = [
+  {
+    id: 'abp-s5-pass',
+    game: 'arenaBreakoutPC',
+    title: 'S5赛季战场通行证（PC）',
+    type: 'banner',
+    startDate: '2026-03-05T02:00:00.000Z',
+    endDate: '2026-05-14T01:59:00.000Z',
+    rewardInfo: 'PC专属皆肤、启动器图标',
+    description: 'S5赛季 PC 专属通行证，包含 100 级奖励、PC 专属枪械模型以及 Steam 成就。',
+    featured: true,
+  },
+  {
+    id: 'abp-2026-04-patch',
+    game: 'arenaBreakoutPC',
+    title: '4月大版本内容更新',
+    type: 'major_event',
+    startDate: '2026-04-15T02:00:00.000Z',
+    endDate: '2026-05-14T01:59:00.000Z',
+    rewardInfo: '更新补偿礼包',
+    description: 'PC版6月前大更新，包含新地图「密令区」、热成像优化和一批反作弊系统调整。',
+    featured: true,
+  },
+  {
+    id: 'abp-2026-04-weekly',
+    game: 'arenaBreakoutPC',
+    title: '联机任务（每周三重置）',
+    type: 'routine',
+    startDate: '2026-04-22T02:00:00.000Z',
+    endDate: '2026-04-29T01:59:00.000Z',
+    rewardInfo: '战备盱券和经验',
+    description: '每周三 UTC 02:00 重置，3 人小队任务奖励翻倍。',
+    featured: false,
+  },
+  {
+    id: 'abp-2026-04-steam-sale',
+    game: 'arenaBreakoutPC',
+    title: 'Steam 春季特别促销',
+    type: 'minor_event',
+    startDate: '2026-03-21T17:00:00.000Z',
+    endDate: '2026-03-28T17:00:00.000Z',
+    rewardInfo: 'DLC 50% OFF',
+    description: 'Steam 春季特卖期间本体及精华版升级包打折。',
+    featured: false,
+  },
+  {
+    id: 'abp-2026-04-monthly',
+    game: 'arenaBreakoutPC',
+    title: '4月月度事件',
+    type: 'minor_event',
+    startDate: '2026-04-01T02:00:00.000Z',
+    endDate: '2026-04-30T15:59:00.000Z',
+    rewardInfo: '限定头像框与凭证',
+    description: '月度限时活动链，累计参战场次可兑换限定奖励。',
+    featured: false,
+  },
+];
+
+// ============================================================
+// Blood Strike 活动数据（FPS，网易全球）
+// 节律：每周四重置（UTC 02:00），赛季约 56 天
+// 当前赛季：S8（2026-03-12 ~ 2026-05-07）
+// ============================================================
+export const bloodStrikeEvents: GameEvent[] = [
+  {
+    id: 'bs-s8-pass',
+    game: 'bloodStrike',
+    title: 'S8赛季通行证',
+    type: 'banner',
+    startDate: '2026-03-12T02:00:00.000Z',
+    endDate: '2026-05-07T01:59:00.000Z',
+    rewardInfo: '限定角色×1、枪械皆肤×3',
+    description: 'S8 赛季通行证，含 50 级奖励、限定角色皆肤和专属击杀特效。',
+    featured: true,
+  },
+  {
+    id: 'bs-2026-04-hero',
+    game: 'bloodStrike',
+    title: '周常英雄挑战（每周四重置）',
+    type: 'routine',
+    startDate: '2026-04-23T02:00:00.000Z',
+    endDate: '2026-04-30T01:59:00.000Z',
+    rewardInfo: '金币×2000',
+    description: '每周四凌晨 UTC 02:00 重置，使用指定英雄完成挑战获得额外奖励。',
+    featured: false,
+  },
+  {
+    id: 'bs-2026-04-map',
+    game: 'bloodStrike',
+    title: '地图轮换：雪域大逃杀',
+    type: 'major_event',
+    startDate: '2026-04-05T02:00:00.000Z',
+    endDate: '2026-05-07T01:59:00.000Z',
+    rewardInfo: '雪域主题礼包',
+    description: '雪域地图限时回归，平衡性调整 + 限定任务链。',
+    featured: true,
+  },
+  {
+    id: 'bs-2026-04-festival',
+    game: 'bloodStrike',
+    title: '五月狂欢节日活动',
+    type: 'minor_event',
+    startDate: '2026-04-28T02:00:00.000Z',
+    endDate: '2026-05-05T01:59:00.000Z',
+    rewardInfo: '限定护符和表情',
+    description: '劳动节主题限时任务，签到累计可领限定表情。',
+    featured: false,
+  },
+  {
+    id: 'bs-2026-04-daily',
+    game: 'bloodStrike',
+    title: '每日任务与登录奖励',
+    type: 'routine',
+    startDate: '2026-04-01T02:00:00.000Z',
+    endDate: '2026-04-30T15:59:00.000Z',
+    rewardInfo: '金币、通行证经验',
+    description: '每日登录 + 3 条日常任务，持续提供赛季通行证经验。',
+    featured: false,
+  },
+];
+
+// ============================================================
+// Delta Force（全球）活动数据（FPS + 掠夺，腾讯天美）
+// 节律：每周二重置（UTC 02:00），赛季约 60 天
+// 当前赛季：S3（2026-02-20 ~ 2026-04-21），S4 起于 2026-04-21
+// ============================================================
+export const deltaForceEvents: GameEvent[] = [
+  {
+    id: 'df-s3-pass',
+    game: 'deltaForce',
+    title: 'S3作战通行证',
+    type: 'banner',
+    startDate: '2026-02-20T02:00:00.000Z',
+    endDate: '2026-04-21T01:59:00.000Z',
+    rewardInfo: '高级行动员×1、武器装饰×5',
+    description: 'S3 作战通行证，含 60 级奖励、限定行动员置装和区域作战地图彩蛋。',
+    featured: true,
+  },
+  {
+    id: 'df-s4-pass',
+    game: 'deltaForce',
+    title: 'S4作战通行证（下赛季）',
+    type: 'banner',
+    startDate: '2026-04-21T02:00:00.000Z',
+    endDate: '2026-06-23T01:59:00.000Z',
+    rewardInfo: '限定新行动员',
+    description: 'S4 赛季开启，新行动员上线 + 雪山作战地图。',
+    featured: true,
+  },
+  {
+    id: 'df-2026-04-ops',
+    game: 'deltaForce',
+    title: '每周作战任务（每周二重置）',
+    type: 'routine',
+    startDate: '2026-04-21T02:00:00.000Z',
+    endDate: '2026-04-28T01:59:00.000Z',
+    rewardInfo: '行动点数×5000',
+    description: '每周二 UTC 02:00 重置，累计作战点数解锁头像框与武器配件。',
+    featured: false,
+  },
+  {
+    id: 'df-2026-04-pvp',
+    game: 'deltaForce',
+    title: '团队竟赛天版图',
+    type: 'major_event',
+    startDate: '2026-04-18T02:00:00.000Z',
+    endDate: '2026-05-02T01:59:00.000Z',
+    rewardInfo: '限定涂装与认证章',
+    description: '月度 PvP 竟赛天版图，15 人VS15 新模式测试。',
+    featured: true,
+  },
+  {
+    id: 'df-2026-04-collab',
+    game: 'deltaForce',
+    title: '月度联动皆肤（3月6本片）',
+    type: 'minor_event',
+    startDate: '2026-04-10T02:00:00.000Z',
+    endDate: '2026-04-30T15:59:00.000Z',
+    rewardInfo: '联动限定置装',
+    description: '月度影视联动皆肤上架，商城限时可购。',
+    featured: false,
+  },
+];
+
+// ============================================================
+// Marvel Rivals 活动数据（英雄射击，网易）
+// 节律：双月赛季（约 56 天），每周任务每周一 UTC 00:00 重置
+// 当前赛季：S4（2026-03-14 ~ 2026-05-09）
+// ============================================================
+export const marvelRivalsEvents: GameEvent[] = [
+  {
+    id: 'mr-s4-pass',
+    game: 'marvelRivals',
+    title: 'S4英雄通行证「铁利美时代」',
+    type: 'banner',
+    startDate: '2026-03-14T02:00:00.000Z',
+    endDate: '2026-05-09T01:59:00.000Z',
+    rewardInfo: '传奇皆肤×2、英雄券×600',
+    description: 'S4 英雄通行证，含 50 级奖励、两位英雄的传奇皆肤和全教育关卡。',
+    featured: true,
+  },
+  {
+    id: 'mr-s4-newhero',
+    game: 'marvelRivals',
+    title: '新英雄上线：金钢狼（预估）',
+    type: 'major_event',
+    startDate: '2026-04-11T02:00:00.000Z',
+    endDate: '2026-05-09T01:59:00.000Z',
+    rewardInfo: '英雄免费解锁券',
+    description: 'S4 中期新英雄上线，累计对局次数可领免费解锁券。',
+    featured: true,
+  },
+  {
+    id: 'mr-2026-04-weekly',
+    game: 'marvelRivals',
+    title: '每周英雄任务（每周一重置）',
+    type: 'routine',
+    startDate: '2026-04-27T00:00:00.000Z',
+    endDate: '2026-05-04T00:00:00.000Z',
+    rewardInfo: '英雄券×150',
+    description: '每周一 UTC 00:00 重置，三条英雄任务全完成可领英雄券。',
+    featured: false,
+  },
+  {
+    id: 'mr-2026-04-rank',
+    game: 'marvelRivals',
+    title: '排位赛中期重置',
+    type: 'routine',
+    startDate: '2026-04-11T02:00:00.000Z',
+    endDate: '2026-05-09T01:59:00.000Z',
+    rewardInfo: '段位头像框',
+    description: 'S4 中期排位赛软重置，段位下降一个子段位。',
+    featured: false,
+  },
+  {
+    id: 'mr-2026-04-collab',
+    game: 'marvelRivals',
+    title: '联动皆肤包：X战警主题',
+    type: 'minor_event',
+    startDate: '2026-04-18T02:00:00.000Z',
+    endDate: '2026-05-02T01:59:00.000Z',
+    rewardInfo: 'X战警主题皆肤',
+    description: '限时联动商城上架 X 战警主题皆肤套装。',
+    featured: false,
+  },
+];
+
+// ============================================================
+// Where Winds Meet（燕云十六声）活动数据（武侠 MMO，网易）
+// 节律：每周三重置（UTC 03:00 / 北京时间 11:00），版本约 42 天
+// 当前版本：V1.6（2026-04-09 ~ 2026-05-21）
+// ============================================================
+export const whereWindsMeetEvents: GameEvent[] = [
+  {
+    id: 'wwm-1.6-story',
+    game: 'whereWindsMeet',
+    title: 'V1.6「哀哉江湖」主线剧情更新',
+    type: 'major_event',
+    startDate: '2026-04-09T03:00:00.000Z',
+    endDate: '2026-05-21T02:59:00.000Z',
+    rewardInfo: '限定侠客、绝世武学重林',
+    description: 'V1.6 版本更新，主线「哀哉江湖」上线，新门派与绝世武学开放。',
+    featured: true,
+  },
+  {
+    id: 'wwm-1.6-daily',
+    game: 'whereWindsMeet',
+    title: '每日门派任务',
+    type: 'routine',
+    startDate: '2026-04-09T03:00:00.000Z',
+    endDate: '2026-05-21T02:59:00.000Z',
+    rewardInfo: '侠名×500',
+    description: '每日凌晨 UTC 20:00 重置（次日北京时间 04:00），完成事件任务获得侠名与卡丹。',
+    featured: false,
+  },
+  {
+    id: 'wwm-1.6-weekly',
+    game: 'whereWindsMeet',
+    title: '周常侠客秘境（每周三重置）',
+    type: 'routine',
+    startDate: '2026-04-22T03:00:00.000Z',
+    endDate: '2026-04-29T02:59:00.000Z',
+    rewardInfo: '天杆磎×1',
+    description: '每周三 UTC 03:00 重置，四档秘境满星获得天杆磎与高级来仪。',
+    featured: false,
+  },
+  {
+    id: 'wwm-1.6-guyu',
+    game: 'whereWindsMeet',
+    title: '谷雨节气主题活动',
+    type: 'minor_event',
+    startDate: '2026-04-20T03:00:00.000Z',
+    endDate: '2026-05-05T02:59:00.000Z',
+    rewardInfo: '限定涂游扮与嘴屏',
+    description: '谷雨节气限时任务，采菲、参与风筝赛可领限定时装。',
+    featured: true,
+  },
+  {
+    id: 'wwm-1.6-pass',
+    game: 'whereWindsMeet',
+    title: 'V1.6侠客之路通行证',
+    type: 'banner',
+    startDate: '2026-04-09T03:00:00.000Z',
+    endDate: '2026-05-21T02:59:00.000Z',
+    rewardInfo: '限定外观、天杆磎×15',
+    description: 'V1.6 通行证，含 60 级奖励和侠客限定外观。',
+    featured: true,
+  },
+];
+
+// ============================================================
+// Once Human（七日世界）活动数据（生存类，网易）
+// 节律：每个场景赛季约 6 周（约 42 天），每周一 UTC 00:00 重置每周任务
+// 当前场景赛季：S6「唇温流金」（2026-03-26 ~ 2026-05-07）
+// ============================================================
+export const onceHumanEvents: GameEvent[] = [
+  {
+    id: 'oh-s6-scenario',
+    game: 'onceHuman',
+    title: 'S6「唇温流金」场景赛季',
+    type: 'banner',
+    startDate: '2026-03-26T02:00:00.000Z',
+    endDate: '2026-05-07T01:59:00.000Z',
+    rewardInfo: '场景限定蓝图、快怕×3',
+    description: 'S6 新场景「唇温流金」上线，含 6 周赛季目标、新武器框架与场景独占蓝图。',
+    featured: true,
+  },
+  {
+    id: 'oh-s7-preview',
+    game: 'onceHuman',
+    title: 'S7新场景预告',
+    type: 'major_event',
+    startDate: '2026-05-07T02:00:00.000Z',
+    endDate: '2026-06-18T01:59:00.000Z',
+    rewardInfo: '赛季奖励',
+    description: 'S7 新场景即将上线，包含新怀异与新 BOSS 轮换。',
+    featured: true,
+  },
+  {
+    id: 'oh-2026-04-daily',
+    game: 'onceHuman',
+    title: '每日建造任务',
+    type: 'routine',
+    startDate: '2026-03-26T02:00:00.000Z',
+    endDate: '2026-05-07T01:59:00.000Z',
+    rewardInfo: '能量链接×200',
+    description: '每日 UTC 00:00 重置，收集、建造、探索任务的能量链接主要来源。',
+    featured: false,
+  },
+  {
+    id: 'oh-2026-04-boss',
+    game: 'onceHuman',
+    title: '赛季 BOSS 轮换（每周四）',
+    type: 'routine',
+    startDate: '2026-04-23T02:00:00.000Z',
+    endDate: '2026-04-30T01:59:00.000Z',
+    rewardInfo: '高品质蓝图线索',
+    description: '每周四凌晨 UTC 00:00 轮换赛季 BOSS，打通可获得蓝图线索。',
+    featured: false,
+  },
+  {
+    id: 'oh-2026-04-coop',
+    game: 'onceHuman',
+    title: '跨服合作事件：「黑雾芘灵」',
+    type: 'minor_event',
+    startDate: '2026-04-11T02:00:00.000Z',
+    endDate: '2026-04-25T01:59:00.000Z',
+    rewardInfo: '纪念头像框、高级能量链接',
+    description: '特定活动区域限时开放，跨服玉玠合作挑战「黑雾芘灵」。',
+    featured: true,
+  },
+];
+
+// ============================================================
+// Whiteout Survival（寒霜启示录）活动数据（SLG，点点互动）
+// 节律：每周一 UTC 00:00 重置联盟战，每月 5-8 日开启 SVS 跨服战
+// ============================================================
+export const whiteoutSurvivalEvents: GameEvent[] = [
+  {
+    id: 'wos-2026-04-svs',
+    game: 'whiteoutSurvival',
+    title: 'SVS 跨服争霸赛（4月场次）',
+    type: 'major_event',
+    startDate: '2026-04-07T00:00:00.000Z',
+    endDate: '2026-04-13T23:59:00.000Z',
+    rewardInfo: '隐藏头像、英雄纪念章',
+    description: '服器 VS 服器的跨服大战，含战厉、研究、生产、爬塔等子项，累计积分解锁等级奖励。',
+    featured: true,
+  },
+  {
+    id: 'wos-2026-04-pass',
+    game: 'whiteoutSurvival',
+    title: '冰原通行证（4月）',
+    type: 'banner',
+    startDate: '2026-04-01T00:00:00.000Z',
+    endDate: '2026-04-30T23:59:00.000Z',
+    rewardInfo: '英雄磎×1000、勇气而诽×5',
+    description: '月度冰原通行证，升级解锁限定头像、城堡皮肤和大量基建资源。',
+    featured: true,
+  },
+  {
+    id: 'wos-2026-04-alliance',
+    game: 'whiteoutSurvival',
+    title: '联盟决斗周（每周一重置）',
+    type: 'routine',
+    startDate: '2026-04-27T00:00:00.000Z',
+    endDate: '2026-05-04T00:00:00.000Z',
+    rewardInfo: '联盟章×3000',
+    description: '每周一 UTC 00:00 重置，包含联盟远征、城堡争夺与召集令。',
+    featured: false,
+  },
+  {
+    id: 'wos-2026-04-arena',
+    game: 'whiteoutSurvival',
+    title: '英雄竞技场赛季',
+    type: 'routine',
+    startDate: '2026-04-01T00:00:00.000Z',
+    endDate: '2026-04-30T23:59:00.000Z',
+    rewardInfo: '英雄所属奖牌',
+    description: '月度竞技场排名赛，前 100 名可领取英雄所属奖牌。',
+    featured: false,
+  },
+  {
+    id: 'wos-2026-04-buildup',
+    game: 'whiteoutSurvival',
+    title: '月度建造冲刺活动',
+    type: 'minor_event',
+    startDate: '2026-04-15T00:00:00.000Z',
+    endDate: '2026-04-22T23:59:00.000Z',
+    rewardInfo: '高级加速券',
+    description: '限时7日内完成建筑或研究键点节点，获得加速券与资源私人包。',
+    featured: false,
+  },
+];
+
+// ============================================================
+// Last War: Survival（末日：幸存者）活动数据（SLG）
+// 节律：每日无限循环，每周一 UTC 00:00 重置 VS 跨服商战
+// ============================================================
+export const lastWarSurvivalEvents: GameEvent[] = [
+  {
+    id: 'lws-2026-04-vs',
+    game: 'lastWarSurvival',
+    title: 'VS 跨服争赛（4月场次）',
+    type: 'major_event',
+    startDate: '2026-04-14T00:00:00.000Z',
+    endDate: '2026-04-20T23:59:00.000Z',
+    rewardInfo: '限定头像、高级加速券',
+    description: '为期 6 天的服器 VS 服器竟赛，含书价、建造、环境、战斗等章节，累计积分领奖。',
+    featured: true,
+  },
+  {
+    id: 'lws-2026-04-doomsday',
+    game: 'lastWarSurvival',
+    title: '每周末日任务',
+    type: 'routine',
+    startDate: '2026-04-21T00:00:00.000Z',
+    endDate: '2026-04-28T00:00:00.000Z',
+    rewardInfo: '战斗募兵令×1000',
+    description: '每周一 UTC 00:00 重置，完成指定末日任务获得募兵令与英雄经验。',
+    featured: false,
+  },
+  {
+    id: 'lws-2026-04-combat',
+    game: 'lastWarSurvival',
+    title: '每日作战循环',
+    type: 'routine',
+    startDate: '2026-04-01T00:00:00.000Z',
+    endDate: '2026-04-30T23:59:00.000Z',
+    rewardInfo: '体力片×1、幸运券',
+    description: '每日 UTC 00:00 重置日常任务，签到 + 超级浦限时挑战 + 零度筛选。',
+    featured: false,
+  },
+  {
+    id: 'lws-2026-04-troop',
+    game: 'lastWarSurvival',
+    title: '兵种养成周（3怀主题）',
+    type: 'minor_event',
+    startDate: '2026-04-10T00:00:00.000Z',
+    endDate: '2026-04-17T23:59:00.000Z',
+    rewardInfo: '英雄纪念章×50',
+    description: '7 日养成周活动，升级兵种、训练英雄累计积分兑换限定纪念品。',
+    featured: false,
+  },
+  {
+    id: 'lws-2026-04-pass',
+    game: 'lastWarSurvival',
+    title: '幸存者通行证（4月）',
+    type: 'banner',
+    startDate: '2026-04-01T00:00:00.000Z',
+    endDate: '2026-04-30T23:59:00.000Z',
+    rewardInfo: '高级英雄磎、限定头像',
+    description: '月度通行证，进斗获取经验，满级解锁限定外观与高级英雄磎。',
+    featured: true,
+  },
+];
+
+// ============================================================
+// Kingshot 活动数据（牛仔主题 SLG，点点互动）
+// 节律：每周一 UTC 00:00 重置城邦争霸，赛季约 45 天
+// 当前赛季：S3（2026-03-15 ~ 2026-04-29），S4 起于 2026-04-29
+// ============================================================
+export const kingshotEvents: GameEvent[] = [
+  {
+    id: 'ks-s3-pass',
+    game: 'kingshot',
+    title: 'S3通行证「日落荒原」',
+    type: 'banner',
+    startDate: '2026-03-15T00:00:00.000Z',
+    endDate: '2026-04-29T23:59:00.000Z',
+    rewardInfo: '限定英雄磎×2000、牛仔院外观',
+    description: 'S3 赛季通行证，升级解锁限定牛仔院、英雄所属奖牌与建筑背景。',
+    featured: true,
+  },
+  {
+    id: 'ks-s4-pass',
+    game: 'kingshot',
+    title: 'S4通行证（下赛季）',
+    type: 'banner',
+    startDate: '2026-04-29T00:00:00.000Z',
+    endDate: '2026-06-13T23:59:00.000Z',
+    rewardInfo: '新英雄×1',
+    description: 'S4 赛季开启，新牛仔英雄上线 + 城邦争霸玩法升级。',
+    featured: true,
+  },
+  {
+    id: 'ks-2026-04-citystate',
+    game: 'kingshot',
+    title: '每周城邦争霸（每周一重置）',
+    type: 'routine',
+    startDate: '2026-04-27T00:00:00.000Z',
+    endDate: '2026-05-04T00:00:00.000Z',
+    rewardInfo: '税金×1500',
+    description: '每周一 UTC 00:00 重置，联邦之间争夺城主宝座与种植中心。',
+    featured: false,
+  },
+  {
+    id: 'ks-2026-04-daily',
+    game: 'kingshot',
+    title: '每日建筑快冲',
+    type: 'routine',
+    startDate: '2026-03-15T00:00:00.000Z',
+    endDate: '2026-04-29T23:59:00.000Z',
+    rewardInfo: '建筑材料礼包',
+    description: '每日 UTC 00:00 重置，完成建筑、种植、马匹养成目标获得材料礼包。',
+    featured: false,
+  },
+  {
+    id: 'ks-2026-04-festival',
+    game: 'kingshot',
+    title: '牢福节狂欢限时活动',
+    type: 'minor_event',
+    startDate: '2026-05-01T00:00:00.000Z',
+    endDate: '2026-05-08T23:59:00.000Z',
+    rewardInfo: '特色头像框、城堡展品',
+    description: '牢福节主题限时任务，牢穿来宾、十字骑兵、巨人仙人掌主题食物奖励线。',
+    featured: false,
+  },
+];
+
+// ============================================================
 // 所有活动汇总
 // ============================================================
 export const allEvents: GameEvent[] = [
@@ -1414,6 +2054,16 @@ export const allEvents: GameEvent[] = [
   ...zzzEvents,
   ...wutheringEvents,
   ...pubgEvents,
+  ...arenaBreakoutMobileEvents,
+  ...arenaBreakoutPCEvents,
+  ...bloodStrikeEvents,
+  ...deltaForceEvents,
+  ...marvelRivalsEvents,
+  ...whereWindsMeetEvents,
+  ...onceHumanEvents,
+  ...whiteoutSurvivalEvents,
+  ...lastWarSurvivalEvents,
+  ...kingshotEvents,
 ];
 
 // 按游戏获取活动

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useGameStore } from '@/store/useGameStore';
 import { gamesConfig } from '@/data/games';
 import { GameType } from '@/types';
-import { Sparkles, Train, Zap, Waves, Target } from 'lucide-react';
+import { Sparkles, Train, Zap, Waves, Target, Crosshair, Swords, Shield, Flame, Wind, Skull, Snowflake, Bomb, Castle } from 'lucide-react';
 
 // 游戏图标映射
 const gameIcons: Record<GameType, React.ReactNode> = {
@@ -13,6 +13,16 @@ const gameIcons: Record<GameType, React.ReactNode> = {
   zzz: <Zap className="w-5 h-5" />,
   wuthering: <Waves className="w-5 h-5" />,
   pubg: <Target className="w-5 h-5" />,
+  arenaBreakoutMobile: <Crosshair className="w-5 h-5" />,
+  arenaBreakoutPC: <Target className="w-5 h-5" />,
+  bloodStrike: <Swords className="w-5 h-5" />,
+  deltaForce: <Shield className="w-5 h-5" />,
+  marvelRivals: <Flame className="w-5 h-5" />,
+  whereWindsMeet: <Wind className="w-5 h-5" />,
+  onceHuman: <Skull className="w-5 h-5" />,
+  whiteoutSurvival: <Snowflake className="w-5 h-5" />,
+  lastWarSurvival: <Bomb className="w-5 h-5" />,
+  kingshot: <Castle className="w-5 h-5" />,
 };
 
 export function GameSwitcher() {

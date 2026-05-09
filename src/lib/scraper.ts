@@ -890,6 +890,16 @@ function parseEventFromText(
       /(\d+)\s*BP/i,
       /(\d+)\s*RP/i,
     ],
+    arenaBreakoutMobile: [],
+    arenaBreakoutPC: [],
+    bloodStrike: [],
+    deltaForce: [],
+    marvelRivals: [],
+    whereWindsMeet: [],
+    onceHuman: [],
+    whiteoutSurvival: [],
+    lastWarSurvival: [],
+    kingshot: [],
   };
   
   for (const pattern of rewardPatterns[game]) {
@@ -1108,6 +1118,246 @@ function generateFallbackEvents(game: GameType): GameEvent[] {
         featured: false,
       },
     ],
+    arenaBreakoutMobile: [
+      {
+        id: 'abm-fallback-pass',
+        game: 'arenaBreakoutMobile',
+        title: '当前赛季战场通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: nextMonthEnd.toISOString(),
+        rewardInfo: '限定服装、枪械贴纸',
+        description: '暗区突围手游当前赛季战场通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'abm-fallback-weekly',
+        game: 'arenaBreakoutMobile',
+        title: '周常战备任务（周四重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '高级盱券',
+        description: '每周四重置的战备任务（备用数据）',
+        featured: false,
+      },
+    ],
+    arenaBreakoutPC: [
+      {
+        id: 'abp-fallback-pass',
+        game: 'arenaBreakoutPC',
+        title: '当前赛季通行证（PC）',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: nextMonthEnd.toISOString(),
+        rewardInfo: 'PC限定皆肤',
+        description: '暗区突围：无限当前赛季通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'abp-fallback-weekly',
+        game: 'arenaBreakoutPC',
+        title: '联机任务（周三重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '战备与经验',
+        description: 'PC版每周三重置的联机任务（备用数据）',
+        featured: false,
+      },
+    ],
+    bloodStrike: [
+      {
+        id: 'bs-fallback-pass',
+        game: 'bloodStrike',
+        title: '当前赛季通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: versionEnd.toISOString(),
+        rewardInfo: '限定角色与皆肤',
+        description: 'Blood Strike当前赛季通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'bs-fallback-weekly',
+        game: 'bloodStrike',
+        title: '周常英雄挑战（周四重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '金币奖励',
+        description: '每周四重置的英雄挑战任务（备用数据）',
+        featured: false,
+      },
+    ],
+    deltaForce: [
+      {
+        id: 'df-fallback-pass',
+        game: 'deltaForce',
+        title: '当前赛季作战通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: nextMonthEnd.toISOString(),
+        rewardInfo: '限定行动员',
+        description: 'Delta Force当前赛季作战通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'df-fallback-weekly',
+        game: 'deltaForce',
+        title: '作战任务（周二重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '行动点数',
+        description: '每周二重置的作战任务（备用数据）',
+        featured: false,
+      },
+    ],
+    marvelRivals: [
+      {
+        id: 'mr-fallback-pass',
+        game: 'marvelRivals',
+        title: '当前赛季英雄通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: new Date(now.getTime() + 56 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '传奇皆肤',
+        description: 'Marvel Rivals当前赛季英雄通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'mr-fallback-weekly',
+        game: 'marvelRivals',
+        title: '每周英雄任务（周一重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '英雄券',
+        description: '每周一重置的英雄任务（备用数据）',
+        featured: false,
+      },
+    ],
+    whereWindsMeet: [
+      {
+        id: 'wwm-fallback-version',
+        game: 'whereWindsMeet',
+        title: '当前版本主线更新',
+        type: 'major_event',
+        startDate: monthStart.toISOString(),
+        endDate: versionEnd.toISOString(),
+        rewardInfo: '限定侠客',
+        description: '燕云十六声当前版本主线剧情与活动（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'wwm-fallback-weekly',
+        game: 'whereWindsMeet',
+        title: '周常侠客秘境（周三重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '天杆磎',
+        description: '每周三重置的侠客秘境（备用数据）',
+        featured: false,
+      },
+    ],
+    onceHuman: [
+      {
+        id: 'oh-fallback-scenario',
+        game: 'onceHuman',
+        title: '当前场景赛季',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: new Date(now.getTime() + 42 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '场景限定蓝图',
+        description: '七日世界当前场景赛季（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'oh-fallback-daily',
+        game: 'onceHuman',
+        title: '每日建造任务',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '能量链接',
+        description: '每日重置的建造与探索任务（备用数据）',
+        featured: false,
+      },
+    ],
+    whiteoutSurvival: [
+      {
+        id: 'wos-fallback-pass',
+        game: 'whiteoutSurvival',
+        title: '当月冰原通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: monthEnd.toISOString(),
+        rewardInfo: '英雄磎、勇气而诽',
+        description: 'Whiteout Survival当月冰原通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'wos-fallback-alliance',
+        game: 'whiteoutSurvival',
+        title: '联盟决斗周（周一重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '联盟章',
+        description: '每周一重置的联盟对抗活动（备用数据）',
+        featured: false,
+      },
+    ],
+    lastWarSurvival: [
+      {
+        id: 'lws-fallback-pass',
+        game: 'lastWarSurvival',
+        title: '当月幸存者通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: monthEnd.toISOString(),
+        rewardInfo: '限定头像与英雄磎',
+        description: 'Last War: Survival当月通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'lws-fallback-weekly',
+        game: 'lastWarSurvival',
+        title: '周常末日任务（周一重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '募兵令',
+        description: '每周一重置的末日任务（备用数据）',
+        featured: false,
+      },
+    ],
+    kingshot: [
+      {
+        id: 'ks-fallback-pass',
+        game: 'kingshot',
+        title: '当前赛季通行证',
+        type: 'banner',
+        startDate: monthStart.toISOString(),
+        endDate: new Date(now.getTime() + 45 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '英雄磎、牛仔院外观',
+        description: 'Kingshot当前赛季通行证（备用数据）',
+        featured: true,
+      },
+      {
+        id: 'ks-fallback-citystate',
+        game: 'kingshot',
+        title: '每周城邦争霸（周一重置）',
+        type: 'routine',
+        startDate: now.toISOString(),
+        endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        rewardInfo: '税金',
+        description: '每周一重置的城邦争霸（备用数据）',
+        featured: false,
+      },
+    ],
   };
 
   return fallbackMap[game] || [];
@@ -1166,6 +1416,17 @@ async function scrapeFandomEventHistory(game: GameType): Promise<GameEvent[]> {
     zzz: 'https://zenless-zone-zero.fandom.com/wiki/Event/History',
     wuthering: 'https://wutheringwaves.fandom.com/wiki/Event/History',
     pubg: null, // PUBG使用不同的数据源
+    // 以下 10 款暂不依赖 Fandom Wiki 数据源，统一返回 null 走 fallback
+    arenaBreakoutMobile: null,
+    arenaBreakoutPC: null,
+    bloodStrike: null,
+    deltaForce: null,
+    marvelRivals: null,
+    whereWindsMeet: null,
+    onceHuman: null,
+    whiteoutSurvival: null,
+    lastWarSurvival: null,
+    kingshot: null,
   };
 
   const url = historyUrls[game];
@@ -1796,14 +2057,41 @@ export async function scrapeAllEvents(): Promise<Record<GameType, ScrapeResult>>
     scrapeZZZEvents(),
     scrapeWutheringEvents(),
     scrapePUBGEvents(),
+    scrapeEventsByGame('arenaBreakoutMobile'),
+    scrapeEventsByGame('arenaBreakoutPC'),
+    scrapeEventsByGame('bloodStrike'),
+    scrapeEventsByGame('deltaForce'),
+    scrapeEventsByGame('marvelRivals'),
+    scrapeEventsByGame('whereWindsMeet'),
+    scrapeEventsByGame('onceHuman'),
+    scrapeEventsByGame('whiteoutSurvival'),
+    scrapeEventsByGame('lastWarSurvival'),
+    scrapeEventsByGame('kingshot'),
   ]);
 
+  const emptyResult = (): ScrapeResult => ({
+    success: false,
+    events: [],
+    error: 'Failed',
+    timestamp: new Date().toISOString(),
+  });
+
   return {
-    genshin: results[0].status === 'fulfilled' ? results[0].value : { success: false, events: [], error: 'Failed', timestamp: new Date().toISOString() },
-    hsr: results[1].status === 'fulfilled' ? results[1].value : { success: false, events: [], error: 'Failed', timestamp: new Date().toISOString() },
-    zzz: results[2].status === 'fulfilled' ? results[2].value : { success: false, events: [], error: 'Failed', timestamp: new Date().toISOString() },
-    wuthering: results[3].status === 'fulfilled' ? results[3].value : { success: false, events: [], error: 'Failed', timestamp: new Date().toISOString() },
-    pubg: results[4].status === 'fulfilled' ? results[4].value : { success: false, events: [], error: 'Failed', timestamp: new Date().toISOString() },
+    genshin: results[0].status === 'fulfilled' ? results[0].value : emptyResult(),
+    hsr: results[1].status === 'fulfilled' ? results[1].value : emptyResult(),
+    zzz: results[2].status === 'fulfilled' ? results[2].value : emptyResult(),
+    wuthering: results[3].status === 'fulfilled' ? results[3].value : emptyResult(),
+    pubg: results[4].status === 'fulfilled' ? results[4].value : emptyResult(),
+    arenaBreakoutMobile: results[5].status === 'fulfilled' ? results[5].value : emptyResult(),
+    arenaBreakoutPC: results[6].status === 'fulfilled' ? results[6].value : emptyResult(),
+    bloodStrike: results[7].status === 'fulfilled' ? results[7].value : emptyResult(),
+    deltaForce: results[8].status === 'fulfilled' ? results[8].value : emptyResult(),
+    marvelRivals: results[9].status === 'fulfilled' ? results[9].value : emptyResult(),
+    whereWindsMeet: results[10].status === 'fulfilled' ? results[10].value : emptyResult(),
+    onceHuman: results[11].status === 'fulfilled' ? results[11].value : emptyResult(),
+    whiteoutSurvival: results[12].status === 'fulfilled' ? results[12].value : emptyResult(),
+    lastWarSurvival: results[13].status === 'fulfilled' ? results[13].value : emptyResult(),
+    kingshot: results[14].status === 'fulfilled' ? results[14].value : emptyResult(),
   };
 }
 
@@ -1822,6 +2110,22 @@ export async function scrapeEventsByGame(game: GameType): Promise<ScrapeResult> 
       return scrapeWutheringEvents();
     case 'pubg':
       return scrapePUBGEvents();
+    case 'arenaBreakoutMobile':
+    case 'arenaBreakoutPC':
+    case 'bloodStrike':
+    case 'deltaForce':
+    case 'marvelRivals':
+    case 'whereWindsMeet':
+    case 'onceHuman':
+    case 'whiteoutSurvival':
+    case 'lastWarSurvival':
+    case 'kingshot':
+      return {
+        success: true,
+        events: generateFallbackEvents(game),
+        timestamp: new Date().toISOString(),
+        source: 'fallback',
+      };
     default:
       return {
         success: false,

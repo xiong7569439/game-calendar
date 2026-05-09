@@ -1,5 +1,20 @@
 // 游戏类型
-export type GameType = 'genshin' | 'hsr' | 'zzz' | 'wuthering' | 'pubg';
+export type GameType =
+  | 'genshin'
+  | 'hsr'
+  | 'zzz'
+  | 'wuthering'
+  | 'pubg'
+  | 'arenaBreakoutMobile'
+  | 'arenaBreakoutPC'
+  | 'bloodStrike'
+  | 'deltaForce'
+  | 'marvelRivals'
+  | 'whereWindsMeet'
+  | 'onceHuman'
+  | 'whiteoutSurvival'
+  | 'lastWarSurvival'
+  | 'kingshot';
 
 // 活动类型
 export type EventType = 'banner' | 'major_event' | 'minor_event' | 'routine';

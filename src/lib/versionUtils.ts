@@ -51,6 +51,76 @@ export const versionBaseConfigs: Record<GameType, VersionBaseConfig> = {
     versionDays: 64,  // 默认使用A17的天数作为基准
     versionPrefix: '',
   },
+  // 暗区突围（手游）：赛季节律约 60 天
+  arenaBreakoutMobile: {
+    baseVersion: 'S9',
+    baseDate: '2026-03-01T02:00:00.000Z',
+    versionDays: 60,
+    versionPrefix: 'S',
+  },
+  // 暗区突围：无限（PC）：赛季节律约 70 天
+  arenaBreakoutPC: {
+    baseVersion: 'S5',
+    baseDate: '2026-03-05T02:00:00.000Z',
+    versionDays: 70,
+    versionPrefix: 'S',
+  },
+  // Blood Strike：赛季约 56 天
+  bloodStrike: {
+    baseVersion: 'S8',
+    baseDate: '2026-03-10T02:00:00.000Z',
+    versionDays: 56,
+    versionPrefix: 'S',
+  },
+  // Delta Force Global：赛季约 60 天
+  deltaForce: {
+    baseVersion: 'S3',
+    baseDate: '2026-02-20T02:00:00.000Z',
+    versionDays: 60,
+    versionPrefix: 'S',
+  },
+  // Marvel Rivals：赛季约 56 天
+  marvelRivals: {
+    baseVersion: 'S4',
+    baseDate: '2026-03-14T02:00:00.000Z',
+    versionDays: 56,
+    versionPrefix: 'S',
+  },
+  // 燕云十六声：大版本约 42 天
+  whereWindsMeet: {
+    baseVersion: 'V1.5',
+    baseDate: '2026-02-26T03:00:00.000Z',
+    versionDays: 42,
+    versionPrefix: 'V',
+  },
+  // Once Human：赛季约 42 天
+  onceHuman: {
+    baseVersion: 'S6',
+    baseDate: '2026-03-12T02:00:00.000Z',
+    versionDays: 42,
+    versionPrefix: 'S',
+  },
+  // Whiteout Survival：月度版本周期
+  whiteoutSurvival: {
+    baseVersion: 'Y2Q2',
+    baseDate: '2026-04-01T00:00:00.000Z',
+    versionDays: 30,
+    versionPrefix: '',
+  },
+  // Last War Survival：月度版本周期
+  lastWarSurvival: {
+    baseVersion: 'Y2M4',
+    baseDate: '2026-04-01T00:00:00.000Z',
+    versionDays: 30,
+    versionPrefix: '',
+  },
+  // Kingshot：赛季约 45 天
+  kingshot: {
+    baseVersion: 'S3',
+    baseDate: '2026-03-15T00:00:00.000Z',
+    versionDays: 45,
+    versionPrefix: 'S',
+  },
 };
 
 // 解析版本号
