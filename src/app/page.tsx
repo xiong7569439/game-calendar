@@ -44,15 +44,15 @@ export default function Home() {
         {/* 顶部导航 */}
         <header className="sticky top-0 z-40 backdrop-blur-xl bg-[#0f0f1a]/80 border-b border-white/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* 第一行：Logo + 版本信息 */}
             <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-3"
               >
-                <div 
-                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-500"
                   style={{ backgroundColor: `${gameConfig?.color}30` }}
                 >
                   <CalendarDays className="w-5 h-5" style={{ color: gameConfig?.color }} />
@@ -63,15 +63,30 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* 游戏切换器 */}
+              {/* 右侧：当前选中游戏简要信息 */}
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="hidden md:flex items-center gap-2 text-sm text-white/60"
               >
-                <GameSwitcher />
+                <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                  当前：<span className="text-white font-medium ml-1">{gameConfig?.name}</span>
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                  共 <span className="text-white font-medium">15</span> 款游戏
+                </span>
               </motion.div>
             </div>
+
+            {/* 第二行：游戏切换器（独立一行，横向滚动）*/}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="pb-3"
+            >
+              <GameSwitcher />
+            </motion.div>
           </div>
         </header>
 

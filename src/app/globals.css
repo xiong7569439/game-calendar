@@ -47,6 +47,15 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* 隐藏滚动条工具类（适用于横向滚动容器）*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* 选中文字样式 */
 ::selection {
   background: rgba(78, 205, 196, 0.3);
